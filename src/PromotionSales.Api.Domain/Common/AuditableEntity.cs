@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Domain.Common;
+﻿namespace PromotionSales.Api.Domain.Common;
 
 public abstract class AuditableEntity
 {

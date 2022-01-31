@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
+﻿using PromotionSales.Api.Application.Common.Interfaces;
 
-namespace CleanArchitecture.Infrastructure.Services;
+namespace PromotionSales.Api.Infrastructure.Services;
 
 public class DateTimeService : IDateTime
 {

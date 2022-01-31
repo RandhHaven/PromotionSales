@@ -1,8 +1,7 @@
-﻿using System.Security.Claims;
+﻿namespace PromotionSales.Api.WebUI.Services;
 
-using CleanArchitecture.Application.Common.Interfaces;
-
-namespace CleanArchitecture.WebUI.Services;
+using System.Security.Claims;
+using PromotionSales.Api.Application.Common.Interfaces;
 
 public class CurrentUserService : ICurrentUserService
 {

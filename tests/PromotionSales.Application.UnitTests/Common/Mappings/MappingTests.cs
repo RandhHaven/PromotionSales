@@ -1,11 +1,11 @@
 ﻿using System.Runtime.Serialization;
 using AutoMapper;
-using CleanArchitecture.Application.Common.Mappings;
-using CleanArchitecture.Application.TodoLists.Queries.GetTodos;
-using CleanArchitecture.Domain.Entities;
+using PromotionSales.Api.Application.Common.EntitiesDto;
+using PromotionSales.Api.Application.Common.Mappings;
+using PromotionSales.Api.Domain.Entities;
 using NUnit.Framework;
 
-namespace CleanArchitecture.Application.UnitTests.Common.Mappings;
+namespace PromotionSales.Api.Application.UnitTests.Common.Mappings;
 
 public class MappingTests
 {
@@ -27,8 +27,7 @@ public class MappingTests
     }
 
     [Test]
-    [TestCase(typeof(TodoList), typeof(TodoListDto))]
-    [TestCase(typeof(TodoItem), typeof(TodoItemDto))]
+    [TestCase(typeof(Promotion), typeof(PromotionDto))]
     public void ShouldSupportMappingFromSourceToDestination(Type source, Type destination)
     {
         var instance = GetInstanceOf(source);

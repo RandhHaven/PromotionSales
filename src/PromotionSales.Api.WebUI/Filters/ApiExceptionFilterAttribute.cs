@@ -1,9 +1,8 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
+﻿namespace PromotionSales.Api.WebUI.Filters;
 
+using PromotionSales.Api.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-
-namespace CleanArchitecture.WebUI.Filters;
 
 public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
 {

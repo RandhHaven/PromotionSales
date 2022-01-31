@@ -1,9 +1,9 @@
-using CleanArchitecture.Infrastructure.Identity;
-using CleanArchitecture.Infrastructure.Persistence;
+using PromotionSales.Api.Infrastructure.Identity;
+using PromotionSales.Api.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchitecture.WebUI;
+namespace PromotionSales.Api.WebUI;
 
 public class Program
 {
@@ -25,10 +25,7 @@ public class Program
                 }
 
                 var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-
-                await ApplicationDbContextSeed.SeedDefaultUserAsync(userManager, roleManager);
-                await ApplicationDbContextSeed.SeedSampleDataAsync(context);
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();                
             }
             catch (Exception ex)
             {

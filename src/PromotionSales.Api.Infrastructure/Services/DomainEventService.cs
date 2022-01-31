@@ -1,10 +1,10 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Application.Common.Models;
-using CleanArchitecture.Domain.Common;
+﻿using PromotionSales.Api.Application.Common.Interfaces;
+using PromotionSales.Api.Application.Common.Models;
+using PromotionSales.Api.Domain.Common;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace CleanArchitecture.Infrastructure.Services;
+namespace PromotionSales.Api.Infrastructure.Services;
 
 public class DomainEventService : IDomainEventService
 {

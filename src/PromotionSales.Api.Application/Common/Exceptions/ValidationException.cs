@@ -1,6 +1,6 @@
-﻿using FluentValidation.Results;
+﻿namespace PromotionSales.Api.Application.Common.Exceptions;
 
-namespace CleanArchitecture.Application.Common.Exceptions;
+using FluentValidation.Results;
 
 public class ValidationException : Exception
 {

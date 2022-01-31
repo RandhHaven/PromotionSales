@@ -1,13 +1,11 @@
-﻿using CleanArchitecture.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿namespace PromotionSales.Api.Application.Common.Interfaces;
 
-namespace CleanArchitecture.Application.Common.Interfaces;
+using PromotionSales.Api.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 public interface IApplicationDbContext
 {
-    DbSet<TodoList> TodoLists { get; }
-
-    DbSet<TodoItem> TodoItems { get; }
+    DbSet<Promotion> Promotions { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

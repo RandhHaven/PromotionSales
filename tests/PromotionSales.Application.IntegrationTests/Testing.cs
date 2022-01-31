@@ -1,7 +1,9 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Infrastructure.Identity;
-using CleanArchitecture.Infrastructure.Persistence;
-using CleanArchitecture.WebUI;
+﻿namespace PromotionSales.Application.IntegrationTests;
+
+using PromotionSales.Api.Application.Common.Interfaces;
+using PromotionSales.Api.Infrastructure.Identity;
+using PromotionSales.Api.Infrastructure.Persistence;
+using PromotionSales.Api.WebUI;
 using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -11,8 +13,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using NUnit.Framework;
 using Respawn;
-
-namespace CleanArchitecture.Application.IntegrationTests;
 
 [SetUpFixture]
 public class Testing
@@ -38,7 +38,7 @@ public class Testing
 
         services.AddSingleton(Mock.Of<IWebHostEnvironment>(w =>
             w.EnvironmentName == "Development" &&
-            w.ApplicationName == "CleanArchitecture.WebUI"));
+            w.ApplicationName == "PromotionSales.Api.WebUI"));
 
         services.AddLogging();
 

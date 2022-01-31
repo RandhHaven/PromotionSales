@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿namespace PromotionSales.Api.Application.Common.Models;
 
-namespace CleanArchitecture.Application.Common.Models;
+using Microsoft.EntityFrameworkCore;
 
 public class PaginatedList<T>
 {

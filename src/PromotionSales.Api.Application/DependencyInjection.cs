@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
-using CleanArchitecture.Application.Common.Behaviours;
+using PromotionSales.Api.Application.Common.Behaviours;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CleanArchitecture.Application;
+namespace PromotionSales.Api.Application;
 
 public static class DependencyInjection
 {

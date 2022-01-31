@@ -1,7 +1,7 @@
-﻿using System.Reflection;
-using AutoMapper;
+﻿namespace PromotionSales.Api.Application.Common.Mappings;
 
-namespace CleanArchitecture.Application.Common.Mappings;
+using System.Reflection;
+using AutoMapper;
 
 public class MappingProfile : Profile
 {

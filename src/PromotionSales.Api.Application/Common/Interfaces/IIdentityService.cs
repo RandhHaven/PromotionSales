@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Application.Common.Models;
+﻿namespace PromotionSales.Api.Application.Common.Interfaces;
 
-namespace CleanArchitecture.Application.Common.Interfaces;
+using PromotionSales.Api.Application.Common.Models;
 
 public interface IIdentityService
 {

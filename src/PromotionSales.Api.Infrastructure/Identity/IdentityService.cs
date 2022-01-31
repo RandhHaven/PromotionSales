@@ -1,10 +1,10 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Application.Common.Models;
+﻿namespace PromotionSales.Api.Infrastructure.Identity;
+
+using PromotionSales.Api.Application.Common.Interfaces;
+using PromotionSales.Api.Application.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
-namespace CleanArchitecture.Infrastructure.Identity;
 
 public class IdentityService : IIdentityService
 {

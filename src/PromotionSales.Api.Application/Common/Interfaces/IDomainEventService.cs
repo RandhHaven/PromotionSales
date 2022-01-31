@@ -1,6 +1,6 @@
-﻿using CleanArchitecture.Domain.Common;
+﻿using PromotionSales.Api.Domain.Common;
 
-namespace CleanArchitecture.Application.Common.Interfaces;
+namespace PromotionSales.Api.Application.Common.Interfaces;
 
 public interface IDomainEventService
 {

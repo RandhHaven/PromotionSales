@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Application.Common.Models;
+﻿using PromotionSales.Api.Application.Common.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace CleanArchitecture.Infrastructure.Identity;
+namespace PromotionSales.Api.Infrastructure.Identity;
 
 public static class IdentityResultExtensions
 {

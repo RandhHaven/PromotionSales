@@ -1,13 +1,13 @@
-using CleanArchitecture.Application;
-using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Infrastructure;
-using CleanArchitecture.Infrastructure.Persistence;
-using CleanArchitecture.WebUI.Filters;
-using CleanArchitecture.WebUI.Services;
+using PromotionSales.Api.Application;
+using PromotionSales.Api.Application.Common.Interfaces;
+using PromotionSales.Api.Infrastructure;
+using PromotionSales.Api.Infrastructure.Persistence;
+using PromotionSales.Api.WebUI.Services;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
+using PromotionSales.Api.WebUI.Filters;
 
-namespace CleanArchitecture.WebUI;
+namespace PromotionSales.Api.WebUI;
 
 public class Startup
 {

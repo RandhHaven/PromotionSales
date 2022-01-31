@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Application.Common.Interfaces;
+﻿namespace PromotionSales.Api.Application.Common.Interfaces;
 
 public interface IDateTime
 {

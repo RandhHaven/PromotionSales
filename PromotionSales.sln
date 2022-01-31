@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6ED356A7-8B4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{664D406C-2F83-48F0-BFC3-408D5CB53C65}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromotionSales.Domain.UnitTests", "tests\PromotionSales.Domain.UnitTests\PromotionSales.Domain.UnitTests.csproj", "{B808B12B-0C1F-4758-987B-978F8EEAEA43}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromotionSales.Application.UnitTests", "tests\PromotionSales.Application.UnitTests\PromotionSales.Application.UnitTests.csproj", "{D9FDCB7C-48D0-412B-98AB-FCEE0A1C675D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PromotionSales.Api.Domain", "src\PromotionSales.Api.Domain\PromotionSales.Api.Domain.csproj", "{5657B2ED-93C3-4C5C-80D6-1B576E942049}"
@@ -27,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B808B12B-0C1F-4758-987B-978F8EEAEA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B808B12B-0C1F-4758-987B-978F8EEAEA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B808B12B-0C1F-4758-987B-978F8EEAEA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B808B12B-0C1F-4758-987B-978F8EEAEA43}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D9FDCB7C-48D0-412B-98AB-FCEE0A1C675D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9FDCB7C-48D0-412B-98AB-FCEE0A1C675D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9FDCB7C-48D0-412B-98AB-FCEE0A1C675D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,7 +54,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B808B12B-0C1F-4758-987B-978F8EEAEA43} = {664D406C-2F83-48F0-BFC3-408D5CB53C65}
 		{D9FDCB7C-48D0-412B-98AB-FCEE0A1C675D} = {664D406C-2F83-48F0-BFC3-408D5CB53C65}
 		{5657B2ED-93C3-4C5C-80D6-1B576E942049} = {6ED356A7-8B47-4613-AD01-C85CF28491BD}
 		{9E63BBDF-7CCC-4FC6-AB9D-0D5F93AD365A} = {6ED356A7-8B47-4613-AD01-C85CF28491BD}

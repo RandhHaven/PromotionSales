@@ -1,9 +1,9 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
+﻿using PromotionSales.Api.Application.Common.Exceptions;
 using FluentAssertions;
 using FluentValidation.Results;
 using NUnit.Framework;
 
-namespace CleanArchitecture.Application.UnitTests.Common.Exceptions;
+namespace PromotionSales.Api.Application.UnitTests.Common.Exceptions;
 
 public class ValidationExceptionTests
 {
