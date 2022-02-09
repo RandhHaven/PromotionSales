@@ -132,7 +132,7 @@ public class Testing
 
     public static async Task ResetState()
     {
-        await _checkpoint.Reset(_configuration.GetConnectionString("DefaultConnection"));
+        await _checkpoint.Reset(_configuration.GetConnectionString("AppConnection"));
 
         _currentUserId = null;
     }

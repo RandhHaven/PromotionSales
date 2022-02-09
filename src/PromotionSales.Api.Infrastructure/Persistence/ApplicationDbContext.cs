@@ -64,7 +64,9 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
+        builder.Entity<Promotion>().HasKey(x => x.Id);
+        builder.Entity<Promotion>().ToTable("Promotions");
+        base.OnModelCreating(builder);
         base.OnModelCreating(builder);
     }
 

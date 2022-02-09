@@ -36,7 +36,6 @@ public class Program
                 throw;
             }
         }
-
         await host.RunAsync();
     }
 
