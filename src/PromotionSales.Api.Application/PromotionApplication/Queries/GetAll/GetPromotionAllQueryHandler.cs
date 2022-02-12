@@ -7,12 +7,12 @@ using PromotionSales.Api.Application.Common.Interfaces;
 
 namespace PromotionSales.Api.Application.PromotionApplication.Queries.GetAll;
 
-public sealed class GetOrderShopAllQueryHandler : IRequestHandler<GetPromotionAllQuery, GetQueryDto>
+public sealed class GetPromotionAllQueryHandler : IRequestHandler<GetPromotionAllQuery, GetQueryDto>
 {
     private readonly IApplicationDbContext context;
     private readonly IMapper mapper;
 
-    public GetOrderShopAllQueryHandler(IApplicationDbContext _context, IMapper _mapper)
+    public GetPromotionAllQueryHandler(IApplicationDbContext _context, IMapper _mapper)
     {
         this.context = _context ?? throw new ArgumentNullException(nameof(_context));
         this.mapper = _mapper ?? throw new ArgumentNullException(nameof(_mapper));
@@ -25,7 +25,6 @@ public sealed class GetOrderShopAllQueryHandler : IRequestHandler<GetPromotionAl
             ListPromotions = await context.Promotions
             .AsNoTracking()
             .ProjectTo<PromotionDto>(mapper.ConfigurationProvider)
-
             .OrderBy(t => t.Activo)
             .ToListAsync(cancellationToken)
         };

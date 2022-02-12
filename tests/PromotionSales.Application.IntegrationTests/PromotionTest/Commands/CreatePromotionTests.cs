@@ -23,12 +23,12 @@ public class CreatePromotionTests : TestBase
     {
         await SendAsync(new CreatePromotionCommand
         {
-            Title = "Shopping"
+            Activo = true
         });
 
         var command = new CreatePromotionCommand
         {
-            Title = "Shopping"
+            Activo = true
         };
 
         await FluentActions.Invoking(() =>
@@ -42,7 +42,7 @@ public class CreatePromotionTests : TestBase
 
         var command = new CreatePromotionCommand
         {
-            Title = "Tasks"
+            Activo = true
         };
 
         var id = await SendAsync(command);

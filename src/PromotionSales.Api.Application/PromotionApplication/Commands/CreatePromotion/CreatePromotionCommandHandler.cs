@@ -6,7 +6,7 @@ using PromotionSales.Api.Domain.Entities;
 
 namespace PromotionSales.Api.Application.PromotionApplication.Commands.CreatePromotion;
 
-public sealed class CreatePromotionCommandHandler : IRequestHandler<CreatePromotionCommand, PromotionDto>
+public sealed class CreatePromotionCommandHandler : IRequestHandler<CreatePromotionCommand, Guid>
 {
     private readonly IApplicationDbContext context;
     private readonly IMapper mapper;
@@ -17,7 +17,7 @@ public sealed class CreatePromotionCommandHandler : IRequestHandler<CreatePromot
         this.mapper = _mapper ?? throw new ArgumentNullException(nameof(_mapper));
     }
 
-    public async Task<PromotionDto> Handle(CreatePromotionCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreatePromotionCommand request, CancellationToken cancellationToken)
     {
         var entity = new Promotion();
 
@@ -26,7 +26,6 @@ public sealed class CreatePromotionCommandHandler : IRequestHandler<CreatePromot
 
         await this.context.SaveChangesAsync(cancellationToken);
 
-        var entityDto = this.mapper.Map<PromotionDto>(entity);
-        return entityDto;
+        return entity.Id;
     }
 }

@@ -11,7 +11,7 @@ using static Testing;
 public class GetPromotionAllQueryTests : TestBase
 {
     [Test]
-    public async Task ShouldReturnAllListsOrderShops()
+    public async Task ShouldReturnAllListsPromotions()
     {
         await AddAsync(new Promotion
         {

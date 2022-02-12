@@ -3,6 +3,6 @@
 using MediatR;
 using PromotionSales.Api.Application.Common.EntitiesDto;
 
-public sealed class GetPromotionAllQuery : IRequest<GetQueryDto>
+public sealed class GetPromotionValiditysQuery : IRequest<GetQueryDto>
 {
 }

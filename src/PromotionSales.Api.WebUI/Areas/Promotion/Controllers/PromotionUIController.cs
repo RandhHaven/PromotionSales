@@ -6,10 +6,14 @@ using PromotionSales.Api.Application.Common.Models;
 using PromotionSales.Api.Application.PromotionApplication.Commands.CreatePromotion;
 using PromotionSales.Api.Application.PromotionApplication.Commands.DeletePromotion;
 using PromotionSales.Api.Application.PromotionApplication.Commands.UpdatePromotion;
+using PromotionSales.Api.Application.PromotionApplication.Commands.UpdatePromotionByValidityDate;
+using PromotionSales.Api.Application.PromotionApplication.Queries.GetAll;
 using PromotionSales.Api.Application.PromotionApplication.Queries.GetAllPagination;
 using PromotionSales.Api.Application.PromotionApplication.Queries.GetByFilters;
 using PromotionSales.Api.WebUI.SharedController;
 
+[ApiController]
+[Area("Promotion")]
 public class PromotionUIController : ApiControllerBase
 {
     [HttpGet("GetOrderWithPagination")]
@@ -18,16 +22,39 @@ public class PromotionUIController : ApiControllerBase
         return await Mediator.Send(query);
     }
 
+    [HttpGet]
+    public async Task<ActionResult<GetQueryDto>> Get()
+    {
+        return await this.Mediator.Send(new GetPromotionAllQuery());
+    }
+
     [HttpGet("GetPromotionById/{id}")]
     public async Task<ActionResult<PromotionDto>> GetPromotionById(Guid id)
     {
         return await this.Mediator.Send(new GetPromotionByIdQuery { Id  = id });
     }
 
-    [HttpGet("GetPromotionByValidityDate/{id}")]
-    public async Task<ActionResult<GetQueryDto>> GetPromotionByValidityDate(Guid? id)
+    [HttpGet("GetPromotionValiditys")]
+    public async Task<ActionResult<GetQueryDto>> GetPromotionValiditys()
     {
-        return await this.Mediator.Send(new GetPromotionByValidityDateQuery());
+        return await this.Mediator.Send(new GetPromotionValiditysQuery());
+    }
+
+    [HttpGet("GetPromotionValidityByDate/{validityDate}")]
+    public async Task<ActionResult<GetQueryDto>> GetPromotionValidityByDate(String validityDate)
+    {
+        DateTime dateTime;
+        if (!DateTime.TryParse(validityDate, out dateTime))
+        {
+            return BadRequest();
+        }
+        return await this.Mediator.Send(new GetPromotionValidityByDateQuery { Date = dateTime });
+    }
+
+    [HttpGet("GetPromotionValidityBySale")]
+    public async Task<ActionResult<GetQueryPromotionSaleDto>> GetPromotionValidityBySale(String mediosPago)
+    {        
+        return await this.Mediator.Send(new GetPromotionValidityBySaleQuery { MediosDePago = mediosPago });
     }
 
     [HttpDelete("{id}")]
@@ -37,8 +64,8 @@ public class PromotionUIController : ApiControllerBase
         return NoContent();
     }
 
-    [HttpPost]
-    public async Task<ActionResult<PromotionDto>> Create(CreatePromotionCommand command)
+    [HttpPost("CreatePromotion")]
+    public async Task<ActionResult<Guid>> Create(CreatePromotionCommand command)
     {
         return await Mediator.Send(command);
     }
@@ -56,10 +83,10 @@ public class PromotionUIController : ApiControllerBase
         return NoContent();
     }
 
-    [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateValidityDate(Guid id, UpdatePromotionCommand command)
+    [HttpPut("UpdateValidityDate/{id}/{fechaInicio}/{fechaFin}")]
+    public async Task<ActionResult> UpdateValidityDate(Guid id, string fechaInicio, string fechaFin, UpdatePromotionValidityDateCommand command)
     {
-        if (id != command.Id)
+        if (id != command.Id || fechaInicio != command.FechaInicio.ToString() || fechaFin != command.FechaFin.ToString())
         {
             return BadRequest();
         }

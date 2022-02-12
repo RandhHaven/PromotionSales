@@ -71,7 +71,7 @@ public class Startup
 
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Core Order Shop API");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Core Promotions API");
             c.RoutePrefix = string.Empty;
         });
 

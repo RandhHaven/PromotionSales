@@ -24,12 +24,12 @@ public class DeletePromotionTests : TestBase
     {
         var listId = await SendAsync(new CreatePromotionCommand
         {
-            Title = "New List"
+            Activo = true
         });
 
         await SendAsync(new DeletePromotionCommand
         {
-            Id = listId.Id
+            Id = listId
         });
 
         var list = await FindAsync<Promotion>(listId);

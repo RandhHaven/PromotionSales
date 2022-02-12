@@ -24,4 +24,15 @@ public sealed class Promotion : AuditableEntity, IHasDomainEvent
     public DateTime FechaCreacion { get; private set; }
     public DateTime? FechaModificacion { get; private set; }
     public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+
+
+    public void SetValorInteresCuotas(decimal? value)
+    {
+        this.ValorInteresCuotas = value;
+    }
+
+    public void SetActivo(Boolean value)
+    {
+        this.Activo = value;
+    }
 }

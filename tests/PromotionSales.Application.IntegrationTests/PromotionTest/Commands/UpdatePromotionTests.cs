@@ -24,17 +24,17 @@ public class UpdatePromotionTests : TestBase
     {
         var listId = await SendAsync(new CreatePromotionCommand
         {
-            Title = "New List"
+            Activo = true
         });
 
         await SendAsync(new CreatePromotionCommand
         {
-            Title = "Other List"
+            Activo = true
         });
 
         var command = new UpdatePromotionCommand
         {
-            Id = listId.Id,
+            Id = listId,
             Activo = true
         };
 
@@ -51,12 +51,12 @@ public class UpdatePromotionTests : TestBase
 
         var listId = await SendAsync(new CreatePromotionCommand
         {
-            Title = "New List"
+            Activo = true
         });
 
         var command = new UpdatePromotionCommand
         {
-            Id = listId.Id,
+            Id = listId,
             Activo = true
         };
 
