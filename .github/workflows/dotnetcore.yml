@@ -15,7 +15,7 @@ jobs:
     - name: Install dotnet ef
       run: dotnet tool install --global dotnet-ef
     - name: Build with dotnet
-      run: dotnet build --configuration Release CleanArchitecture.sln
+      run: dotnet build --configuration Release PromotionSales.sln
 
   test:
     runs-on: ubuntu-latest
@@ -32,6 +32,6 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
     - name: run tests
-      run: dotnet test CleanArchitecture.sln --configuration Release
+      run: dotnet test PromotionSales.sln --configuration Release
       env:
         ConnectionStrings__DefaultConnection: Server=.;Database=CleanArchitectureTestDb;User=sa;Password=Your_password123;MultipleActiveResultSets=true
