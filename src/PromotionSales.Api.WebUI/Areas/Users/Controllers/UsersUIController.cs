@@ -18,7 +18,7 @@ public class UsersUIController : ApiControllerBase
         return await Mediator.Send(command);
     }
 
-
+    [AllowAnonymous]
     [HttpPost]
     public async Task<ActionResult<Result>> Create(CreateUserCommand command)
     {

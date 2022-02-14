@@ -1,6 +1,7 @@
 ﻿namespace PromotionSales.Api.Application.Common.Interfaces;
 
 using PromotionSales.Api.Application.Common.Models;
+using PromotionSales.Api.Domain.Common;
 
 public interface IIdentityService
 {
@@ -13,4 +14,6 @@ public interface IIdentityService
     Task<(Result Result, string UserId)> CreateUserAsync(string userName, string password);
 
     Task<Result> DeleteUserAsync(string userId);
+
+    Task<UserResult> AuthenticateAsync(string email, string password);
 }

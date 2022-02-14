@@ -6,6 +6,7 @@ using PromotionSales.Api.WebUI.Services;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using PromotionSales.Api.WebUI.Filters;
+using Microsoft.OpenApi.Models;
 
 namespace PromotionSales.Api.WebUI;
 
@@ -35,14 +36,46 @@ public class Startup
 
         services.AddEndpointsApiExplorer();
 
-        services.AddSwaggerGen();
-
         services.AddHealthChecks()
        .AddDbContextCheck<ApplicationDbContext>();
 
         services.AddControllersWithViews(options =>
             options.Filters.Add<ApiExceptionFilterAttribute>())
                 .AddFluentValidation(x => x.AutomaticValidationEnabled = false);
+
+        services.AddSwaggerGen(swaggerConfiguration =>
+        {
+            swaggerConfiguration.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Version = "v1",
+                Title = "Core API",
+                Description = "Core API - Promotion Api",
+            });
+
+            swaggerConfiguration.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+            {
+                Name = "Authorization",
+                Type = SecuritySchemeType.ApiKey,
+                Scheme = "Bearer",
+                BearerFormat = "JWT",
+                In = ParameterLocation.Header,
+                Description = "Bearere <access-token>",
+            });
+
+            swaggerConfiguration.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
+        });
 
         services.AddRazorPages();
 
@@ -77,10 +110,9 @@ public class Startup
 
         app.UseRouting();
         app.UseAuthentication();
-        app.UseIdentityServer();
+        //app.UseIdentityServer();
         app.UseAuthorization();
-
-       
+               
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
