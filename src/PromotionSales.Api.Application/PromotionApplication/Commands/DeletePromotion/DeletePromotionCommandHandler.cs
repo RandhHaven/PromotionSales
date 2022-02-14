@@ -24,7 +24,7 @@ internal sealed class DeletePromotionCommandHandler : IRequestHandler<DeleteProm
        
         if (Object.Equals(entityDelete, null))
         {
-            throw new NotFoundException($"Error Delete Order {nameof(Promotion) } - {request.Id}");
+            throw new NotFoundException($"Error Delete Promotion {nameof(Promotion) } - {request.Id}");
         }
 
         this.context.Promotions.Remove(entityDelete);

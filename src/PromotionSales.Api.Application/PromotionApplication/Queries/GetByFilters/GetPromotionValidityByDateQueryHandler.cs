@@ -24,7 +24,7 @@ internal class GetPromotionValidityByDateQueryHandler : IRequestHandler<GetPromo
     public async Task<GetQueryDto> Handle(GetPromotionValidityByDateQuery request, CancellationToken cancellationToken)
     {
         var listEntity = await this.context.Promotions
-            .Where(x => x.FechaInicio == request.Date)
+            .Where(x => x.FechaInicio > request.Date && x.FechaFin < request.Date)
             .AsNoTracking()
             .ProjectTo<PromotionDto>(mapper.ConfigurationProvider)
             .ToListAsync(cancellationToken);

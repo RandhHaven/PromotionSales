@@ -25,7 +25,6 @@ public sealed class Promotion : AuditableEntity, IHasDomainEvent
     public DateTime? FechaModificacion { get; private set; }
     public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
-
     public void SetValorInteresCuotas(decimal? value)
     {
         this.ValorInteresCuotas = value;
@@ -34,5 +33,15 @@ public sealed class Promotion : AuditableEntity, IHasDomainEvent
     public void SetActivo(Boolean value)
     {
         this.Activo = value;
+    }
+
+    public void SetMaximaCantidadDeCuotas(int? maximaCantidadDeCuotas)
+    {
+        this.MaximaCantidadDeCuotas = maximaCantidadDeCuotas;
+    }
+
+    public void SetPorcentajeDeDescuento(decimal? porcentajeDeDescuento)
+    {
+        this.PorcentajeDeDescuento = porcentajeDeDescuento;
     }
 }

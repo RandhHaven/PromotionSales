@@ -26,7 +26,7 @@ internal class UpdatePromotionCommandHandler : IRequestHandler<UpdatePromotionCo
 
         if (Object.Equals(entity, null))
         {
-            throw new NotFoundException($"Error Modify Order: {nameof(PromotionDto)}, {request.Id}");
+            throw new NotFoundException($"Error Modify Promotion: {nameof(PromotionDto)}, {request.Id}");
         }
 
         entity.SetValorInteresCuotas(request.ValorInteresCuotas);
