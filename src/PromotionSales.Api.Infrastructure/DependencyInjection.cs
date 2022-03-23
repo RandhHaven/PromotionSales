@@ -48,7 +48,7 @@ public static class DependencyInjection
         services.AddTransient<IIdentityService, IdentityService>();
         services.AddTransient<ITokenSignerService, TokenSignerService>();
 
-        var jwtSecret = configuration["JWT_SERCRET"];
+        var jwtSecret = configuration["AppSettings:Jwt:SecretKey"];
 
         var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
 
@@ -65,9 +65,9 @@ public static class DependencyInjection
             options.TokenValidationParameters = new TokenValidationParameters()
             {
                 ValidateIssuer = true,
-                ValidIssuer = configuration["JWT_ISSUER"],
+                ValidIssuer = configuration["AppSettings:Jwt:Issuer"],
                 ValidateAudience = true,
-                ValidAudience = configuration["JWT_AUDIENCE"],
+                ValidAudience = configuration["AppSettings:Jwt:Audience"],
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = symmetricSecurityKey
             };

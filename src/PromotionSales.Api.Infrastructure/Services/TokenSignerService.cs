@@ -21,10 +21,10 @@ internal class TokenSignerService : ITokenSignerService
 
     public string SignToken(UserResult user)
     {
-        var jwtSecret = this.configuration["JWT_SERCRET"];
-        var issuer = this.configuration["JWT_ISSUER"];
-        var audience = this.configuration["JWT_AUDIENCE"];
-        var expiresIn = int.Parse(this.configuration["JWT_EXPIRES_IN"]);
+        var jwtSecret = configuration["AppSettings:Jwt:SecretKey"];
+        var issuer = configuration["AppSettings:Jwt:Issuer"];
+        var audience = configuration["AppSettings:Jwt:Audience"];
+        var expiresIn = int.Parse(configuration["AppSettings:Jwt:expires_in"]);
 
         var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
         var jwtExpirationInMinutes = expiresIn;

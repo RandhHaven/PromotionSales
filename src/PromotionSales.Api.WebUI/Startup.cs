@@ -7,6 +7,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using PromotionSales.Api.WebUI.Filters;
 using Microsoft.OpenApi.Models;
+using PromotionSales.Api.WebUI.Helpers;
 
 namespace PromotionSales.Api.WebUI;
 
@@ -79,6 +80,12 @@ public class Startup
 
         services.AddRazorPages();
 
+        #region Strongly typed settings object
+
+        services.AddSingleton(Configuration.GetSection(AppSettings.Section).Get<AppSettings>());
+
+        #endregion Strongly typed settings object
+
         // Customise default API behaviour
         services.Configure<ApiBehaviorOptions>(options =>
             options.SuppressModelStateInvalidFilter = true);
@@ -110,7 +117,6 @@ public class Startup
 
         app.UseRouting();
         app.UseAuthentication();
-        //app.UseIdentityServer();
         app.UseAuthorization();
                
         app.UseEndpoints(endpoints =>
