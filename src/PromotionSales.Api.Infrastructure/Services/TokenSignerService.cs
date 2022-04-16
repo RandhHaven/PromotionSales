@@ -32,7 +32,7 @@ internal class TokenSignerService : ITokenSignerService
         var claims = new List<Claim>();
         claims.Add(new Claim(ClaimTypes.NameIdentifier, user.UserId));
         claims.Add(new Claim(ClaimTypes.Email, user.Email));
-        claims.Add(new Claim(ClaimTypes.Name, user.UserName ?? ""));
+        claims.Add(new Claim(ClaimTypes.Name, user.UserName ?? String.Empty));
 
         var securityTokenDescriptor = new SecurityTokenDescriptor
         {

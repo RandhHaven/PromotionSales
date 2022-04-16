@@ -1,10 +1,10 @@
-﻿using PromotionSales.Api.Application.Common.Interfaces;
+﻿namespace PromotionSales.Api.Infrastructure.Services;
+
+using PromotionSales.Api.Application.Common.Interfaces;
 using PromotionSales.Api.Application.Common.Models;
 using PromotionSales.Api.Domain.Common;
 using MediatR;
 using Microsoft.Extensions.Logging;
-
-namespace PromotionSales.Api.Infrastructure.Services;
 
 public class DomainEventService : IDomainEventService
 {

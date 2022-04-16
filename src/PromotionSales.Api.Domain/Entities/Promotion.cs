@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace PromotionSales.Api.Domain.Entities;
+
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using PromotionSales.Api.Domain.Common;
-
-namespace PromotionSales.Api.Domain.Entities;
 
 public sealed class Promotion : AuditableEntity, IHasDomainEvent
 {

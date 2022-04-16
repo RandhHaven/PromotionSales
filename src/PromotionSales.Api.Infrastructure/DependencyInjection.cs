@@ -2,7 +2,6 @@
 using PromotionSales.Api.Infrastructure.Identity;
 using PromotionSales.Api.Infrastructure.Persistence;
 using PromotionSales.Api.Infrastructure.Services;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +37,9 @@ public static class DependencyInjection
         {
             options.Password.RequiredLength = 8;
             options.Lockout.AllowedForNewUsers = true;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireLowercase = false;
             options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromHours(24);
             options.User.RequireUniqueEmail = true;
         })

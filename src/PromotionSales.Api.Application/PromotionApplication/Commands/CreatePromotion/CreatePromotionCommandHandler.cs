@@ -22,7 +22,7 @@ public sealed class CreatePromotionCommandHandler : IRequestHandler<CreatePromot
         var entity = new Promotion();
 
         entity.Activo = request.Activo;
-        this.context.Promotions.Add(entity);        
+        this.context.Promotions.Add(entity);
 
         await this.context.SaveChangesAsync(cancellationToken);
 
