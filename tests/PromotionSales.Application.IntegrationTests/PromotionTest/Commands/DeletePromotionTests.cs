@@ -24,7 +24,7 @@ public class DeletePromotionTests : TestBase
     {
         var listId = await SendAsync(new CreatePromotionCommand
         {
-            Activo = true
+            Active = true
         });
 
         await SendAsync(new DeletePromotionCommand

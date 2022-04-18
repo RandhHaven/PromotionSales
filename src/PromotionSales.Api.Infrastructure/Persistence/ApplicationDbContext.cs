@@ -29,6 +29,10 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, 
     }
 
     public DbSet<Promotion> Promotions => Set<Promotion>();
+    public DbSet<PromotionConfigure> PromotionsConfigure => Set<PromotionConfigure>();
+    public DbSet<MeanPayment> MeanPayments => Set<MeanPayment>();
+    public DbSet<Bank> Banks => Set<Bank>();
+    public DbSet<ProductCategory> ProductsCategory => Set<ProductCategory>();
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {
@@ -37,13 +41,13 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, 
             switch (entry.State)
             {
                 case EntityState.Added:
-                    entry.Entity.CreatedBy = _currentUserService.UserId;
-                    entry.Entity.Created = _dateTime.Now;
+                    entry.Entity.CreatedByUserId = _currentUserService.UserId;
+                    entry.Entity.DateCreated = _dateTime.Now;
                     break;
 
                 case EntityState.Modified:
-                    entry.Entity.LastModifiedBy = _currentUserService.UserId;
-                    entry.Entity.LastModified = _dateTime.Now;
+                    entry.Entity.LastModifiedByUserId = _currentUserService.UserId;
+                    entry.Entity.LastDateModified = _dateTime.Now;
                     break;
             }
         }
@@ -66,7 +70,6 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, 
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         builder.Entity<Promotion>().HasKey(x => x.Id);
         builder.Entity<Promotion>().ToTable("Promotions");
-        base.OnModelCreating(builder);
         base.OnModelCreating(builder);
     }
 

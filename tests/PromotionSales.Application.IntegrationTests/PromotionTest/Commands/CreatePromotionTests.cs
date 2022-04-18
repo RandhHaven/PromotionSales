@@ -23,12 +23,12 @@ public class CreatePromotionTests : TestBase
     {
         await SendAsync(new CreatePromotionCommand
         {
-            Activo = true
+            Active = true
         });
 
         var command = new CreatePromotionCommand
         {
-            Activo = true
+            Active = true
         };
 
         await FluentActions.Invoking(() =>
@@ -42,7 +42,7 @@ public class CreatePromotionTests : TestBase
 
         var command = new CreatePromotionCommand
         {
-            Activo = true
+            Active = true
         };
 
         var id = await SendAsync(command);
@@ -50,8 +50,8 @@ public class CreatePromotionTests : TestBase
         var list = await FindAsync<Promotion>(id);
 
         list.Should().NotBeNull();
-        list!.Activo.Should().Be(command.Activo);
-        list.CreatedBy.Should().Be(userId);
-        list.Created.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(10000));
+        list!.Active.Should().Be(command.Active);
+        list.CreatedByUserId.Should().Be(userId);
+        list.DateCreated.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(10000));
     }
 }

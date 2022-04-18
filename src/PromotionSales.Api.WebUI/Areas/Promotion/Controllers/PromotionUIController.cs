@@ -65,12 +65,21 @@ public class PromotionUIController : ApiControllerBase
     }
 
     [HttpPost("CreatePromotion")]
+    [Route("[action]")]
     public async Task<ActionResult<Guid>> Create(CreatePromotionCommand command)
     {
-        return await Mediator.Send(command);
+        try
+        {
+            return await Mediator.Send(command);
+        }
+        catch (Exception)
+        {
+            return BadRequest();
+        }
     }
 
     [HttpPut("{id}")]
+    [Route("[action]")]
     public async Task<ActionResult> Update(Guid id, UpdatePromotionCommand command)
     {
         if (id != command.Id)

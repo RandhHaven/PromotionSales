@@ -10,7 +10,7 @@ public class PromotionConfiguration : IEntityTypeConfiguration<Promotion>
     {
         builder.Ignore(e => e.DomainEvents);
 
-        builder.Property(t => t.PorcentajeDeDescuento)
+        builder.Property(t => t.PromocionName)
             .HasMaxLength(200)
             .IsRequired();
     }

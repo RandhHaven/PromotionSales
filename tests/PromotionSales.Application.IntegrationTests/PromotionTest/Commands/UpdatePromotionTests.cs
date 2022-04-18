@@ -15,7 +15,7 @@ public class UpdatePromotionTests : TestBase
     [Test]
     public async Task ShouldRequireValidTodoListId()
     {
-        var command = new UpdatePromotionCommand { Id = Guid.NewGuid(), Activo = true };
+        var command = new UpdatePromotionCommand { Id = Guid.NewGuid(), Active = true };
         await FluentActions.Invoking(() => SendAsync(command)).Should().ThrowAsync<NotFoundException>();
     }
 
@@ -24,18 +24,18 @@ public class UpdatePromotionTests : TestBase
     {
         var listId = await SendAsync(new CreatePromotionCommand
         {
-            Activo = true
+            Active = true
         });
 
         await SendAsync(new CreatePromotionCommand
         {
-            Activo = true
+            Active = true
         });
 
         var command = new UpdatePromotionCommand
         {
             Id = listId,
-            Activo = true
+            Active = true
         };
 
         (await FluentActions.Invoking(() =>
@@ -51,13 +51,13 @@ public class UpdatePromotionTests : TestBase
 
         var listId = await SendAsync(new CreatePromotionCommand
         {
-            Activo = true
+            Active = true
         });
 
         var command = new UpdatePromotionCommand
         {
             Id = listId,
-            Activo = true
+            Active = true
         };
 
         await SendAsync(command);
@@ -65,10 +65,10 @@ public class UpdatePromotionTests : TestBase
         var list = await FindAsync<Promotion>(listId);
 
         list.Should().NotBeNull();
-        list!.Activo.Should().Be(command.Activo);
-        list.LastModifiedBy.Should().NotBeNull();
-        list.LastModifiedBy.Should().Be(userId);
-        list.LastModified.Should().NotBeNull();
-        list.LastModified.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(10000));
+        list!.Active.Should().Be(command.Active);
+        list.LastModifiedByUserId.Should().NotBeNull();
+        list.LastModifiedByUserId.Should().Be(userId);
+        list.LastDateModified.Should().NotBeNull();
+        list.LastDateModified.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(10000));
     }
 }

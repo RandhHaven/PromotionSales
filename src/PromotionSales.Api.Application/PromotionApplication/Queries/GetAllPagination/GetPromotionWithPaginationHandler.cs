@@ -24,7 +24,7 @@ internal class GetPromotionWithPaginationHandler : IRequestHandler<GetPromotionW
     public async Task<PaginatedList<PromotionDto>> Handle(GetPromotionWithPagination request, CancellationToken cancellationToken)
     {
         return await this.context.Promotions
-           .OrderBy(x => x.Activo)
+           .OrderBy(x => x.Active)
            .ProjectTo<PromotionDto>(this.mapper.ConfigurationProvider)
            .PaginatedListAsync(request.PageNumber, request.PageSize);
     }

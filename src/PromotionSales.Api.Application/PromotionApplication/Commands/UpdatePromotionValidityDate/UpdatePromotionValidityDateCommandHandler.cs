@@ -29,7 +29,7 @@ internal class UpdatePromotionValidityDateCommandHandler : IRequestHandler<Updat
         {
             throw new NotFoundException($"Error Modify Promotion: {nameof(PromotionDto)}, {request.Id}");
         }
-        entity.SetActivo(true);
+        //entity.SetActivo(true);
 
         await this.context.SaveChangesAsync(cancellationToken);
         var entityDto = this.mapper.Map<PromotionDto>(entity);

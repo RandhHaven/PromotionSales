@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using PromotionSales.Api.Application.Common.EntitiesDto;
+using Microsoft.Extensions.Logging;
 using PromotionSales.Api.Application.Common.Interfaces;
 using PromotionSales.Api.Domain.Entities;
 
@@ -10,22 +10,29 @@ public sealed class CreatePromotionCommandHandler : IRequestHandler<CreatePromot
 {
     private readonly IApplicationDbContext context;
     private readonly IMapper mapper;
+    private readonly ILogger<CreatePromotionCommandHandler> logger;
 
-    public CreatePromotionCommandHandler(IApplicationDbContext _context, IMapper _mapper)
+    public CreatePromotionCommandHandler(IApplicationDbContext _context, IMapper _mapper, ILogger<CreatePromotionCommandHandler> _logger)
     {
         this.context = _context ?? throw new ArgumentNullException(nameof(_context));
         this.mapper = _mapper ?? throw new ArgumentNullException(nameof(_mapper));
+        this.logger = _logger?? throw new ArgumentNullException(nameof(_logger));
     }
 
     public async Task<Guid> Handle(CreatePromotionCommand request, CancellationToken cancellationToken)
     {
         var entity = new Promotion();
+        try
+        {
+            entity.Active = request.Active;
+            this.context.Promotions.Add(entity);
 
-        entity.Activo = request.Activo;
-        this.context.Promotions.Add(entity);
-
-        await this.context.SaveChangesAsync(cancellationToken);
-
+            await this.context.SaveChangesAsync(cancellationToken);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, ex);
+        }
         return entity.Id;
     }
 }

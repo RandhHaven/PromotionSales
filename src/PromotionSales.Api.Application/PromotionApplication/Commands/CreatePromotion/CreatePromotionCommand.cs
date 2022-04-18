@@ -13,7 +13,7 @@ public class CreatePromotionCommand : IRequest<Guid>
     public decimal? PorcentajeDeDescuento { get; set; }
     public DateTime? FechaInicio { get; set; }
     public DateTime? FechaFin { get; set; }
-    public bool Activo { get; set; }
+    public bool Active { get; set; }
     public DateTime FechaCreacion { get; set; }
     public DateTime? FechaModificacion { get; set; }
 }

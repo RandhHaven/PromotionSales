@@ -29,8 +29,8 @@ internal class UpdatePromotionCommandHandler : IRequestHandler<UpdatePromotionCo
             throw new NotFoundException($"Error Modify Promotion: {nameof(PromotionDto)}, {request.Id}");
         }
 
-        entity.SetValorInteresCuotas(request.ValorInteresCuotas);
-        entity.SetActivo(request.Activo);
+        //entity.SetValorInteresCuotas(request.ValorInteresCuotas);
+        //entity.SetActivo(request.Activo);
 
         await this.context.SaveChangesAsync(cancellationToken);
         var entityDto = this.mapper.Map<PromotionDto>(entity);

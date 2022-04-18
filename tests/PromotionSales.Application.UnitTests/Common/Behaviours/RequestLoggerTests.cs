@@ -28,7 +28,7 @@ public class RequestLoggerTests
 
         var requestLogger = new LoggingBehaviour<CreatePromotionCommand>(_logger.Object, _currentUserService.Object, _identityService.Object);
 
-        await requestLogger.Process(new CreatePromotionCommand { Id = Guid.NewGuid(), Activo = true }, new CancellationToken());
+        await requestLogger.Process(new CreatePromotionCommand { Id = Guid.NewGuid(), Active = true }, new CancellationToken());
 
         _identityService.Verify(i => i.GetUserNameAsync(It.IsAny<string>()), Times.Once);
     }
@@ -38,7 +38,7 @@ public class RequestLoggerTests
     {
         var requestLogger = new LoggingBehaviour<CreatePromotionCommand>(_logger.Object, _currentUserService.Object, _identityService.Object);
 
-        await requestLogger.Process(new CreatePromotionCommand { Id = Guid.NewGuid(), Activo = true }, new CancellationToken());
+        await requestLogger.Process(new CreatePromotionCommand { Id = Guid.NewGuid(), Active = true }, new CancellationToken());
 
         _identityService.Verify(i => i.GetUserNameAsync(It.IsAny<string>()), Times.Never);
     }

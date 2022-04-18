@@ -24,7 +24,7 @@ internal class GetPromotionValiditysQueryHandler : IRequestHandler<GetPromotionV
         {
             ListPromotions = await context.Promotions
             .AsNoTracking()
-            .Where(t => t.Activo)
+            .Where(t => t.Active)
             .ProjectTo<PromotionDto>(mapper.ConfigurationProvider)
             .OrderBy(t => t.Activo)
             .ToListAsync(cancellationToken)
