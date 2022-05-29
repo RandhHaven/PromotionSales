@@ -40,11 +40,11 @@ public class PromotionUIController : ApiControllerBase
         return await this.Mediator.Send(new GetPromotionValiditysQuery());
     }
 
-    [HttpGet("GetPromotionValidityByDate/{validityDate}")]
-    public async Task<ActionResult<GetQueryDto>> GetPromotionValidityByDate(String validityDate)
+    [HttpGet("GetPromotionValidityByDate/{validateDate}")]
+    public async Task<ActionResult<GetQueryDto>> GetPromotionValidityByDate(String validateDate)
     {
         DateTime dateTime;
-        if (!DateTime.TryParse(validityDate, out dateTime))
+        if (!DateTime.TryParse(validateDate, out dateTime))
         {
             return BadRequest();
         }
@@ -53,7 +53,7 @@ public class PromotionUIController : ApiControllerBase
 
     [HttpGet("GetPromotionValidityBySale")]
     public async Task<ActionResult<GetQueryPromotionSaleDto>> GetPromotionValidityBySale(String mediosPago)
-    {        
+    {
         return await this.Mediator.Send(new GetPromotionValidityBySaleQuery { MediosDePago = mediosPago });
     }
 
@@ -64,7 +64,7 @@ public class PromotionUIController : ApiControllerBase
         return NoContent();
     }
 
-    [HttpPost("CreatePromotion")]
+    [HttpPost]
     [Route("[action]")]
     public async Task<ActionResult<Guid>> Create(CreatePromotionCommand command)
     {
@@ -78,8 +78,8 @@ public class PromotionUIController : ApiControllerBase
         }
     }
 
-    [HttpPut("{id}")]
-    [Route("[action]")]
+    [HttpPut]
+    [Route("[action]/{id}")]
     public async Task<ActionResult> Update(Guid id, UpdatePromotionCommand command)
     {
         if (id != command.Id)
@@ -92,7 +92,8 @@ public class PromotionUIController : ApiControllerBase
         return NoContent();
     }
 
-    [HttpPut("UpdateValidityDate/{id}/{fechaInicio}/{fechaFin}")]
+    [HttpPut]
+    [Route("[action]/{id}/{fechaInicio}/{fechaFin}")]
     public async Task<ActionResult> UpdateValidityDate(Guid id, string fechaInicio, string fechaFin, UpdatePromotionValidityDateCommand command)
     {
         if (id != command.Id || fechaInicio != command.FechaInicio.ToString() || fechaFin != command.FechaFin.ToString())

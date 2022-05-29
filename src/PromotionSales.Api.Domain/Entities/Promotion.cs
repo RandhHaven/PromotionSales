@@ -15,13 +15,8 @@ public sealed class Promotion : AuditableEntity, IHasDomainEvent
     public Guid Id { get; private set; }
     public string PromocionName { get; private set; }
     public ICollection<PromotionConfigure> PromotionsConfigure { get; set; }
-    
     public DateTime? EffectiveDate { get; private set; }
-    public DateTime? FechaFin { get; private set; }
-    public bool Active { get; set; }
+    public DateTime? EndDate { get; private set; }
+    public Boolean Active { get; set; }
     public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
-
-   
-
-
 }

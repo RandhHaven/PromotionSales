@@ -8,9 +8,9 @@ public class CreatePromotionCommand : IRequest<Guid>
     public IList<string> MediosDePago { get; set; }
     public IList<string> Bancos { get; set; }
     public IList<string> CategoriasProductos { get; set; }
-    public int? MaximaCantidadDeCuotas { get; set; }
-    public decimal? ValorInteresCuotas { get; set; }
-    public decimal? PorcentajeDeDescuento { get; set; }
+    public Int32? MaximaCantidadDeCuotas { get; set; }
+    public Decimal? ValorInteresCuotas { get; set; }
+    public Decimal? PorcentajeDeDescuento { get; set; }
     public DateTime? FechaInicio { get; set; }
     public DateTime? FechaFin { get; set; }
     public bool Active { get; set; }

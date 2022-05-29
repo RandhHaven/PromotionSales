@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
-using PromotionSales.Api.Application.Common.Behaviours;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using PromotionSales.Api.Application.Common.Behaviours;
 
 namespace PromotionSales.Api.Application;
 

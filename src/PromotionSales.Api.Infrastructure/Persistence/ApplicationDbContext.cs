@@ -70,6 +70,7 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, 
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         builder.Entity<Promotion>().HasKey(x => x.Id);
         builder.Entity<Promotion>().ToTable("Promotions");
+        
         base.OnModelCreating(builder);
     }
 

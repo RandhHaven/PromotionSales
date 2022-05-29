@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 public interface IApplicationDbContext
 {
     DbSet<Promotion> Promotions { get; }
-    DbSet<PromotionConfigure> PromotionsConfigure { get; }
+    //DbSet<PromotionConfigure> PromotionsConfigure { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

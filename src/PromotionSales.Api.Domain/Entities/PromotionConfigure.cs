@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using PromotionSales.Api.Domain.Common;
 
-public class PromotionConfigure : AuditableEntity, IHasDomainEvent
+public class PromotionConfigure : AuditableEntity
 {
     [Required]
     [Key]
@@ -12,35 +12,18 @@ public class PromotionConfigure : AuditableEntity, IHasDomainEvent
     public Guid PromotionId { get; private set; }
     [ForeignKey(nameof(PromotionId))]
     public virtual Promotion Promotion { get; set; }
-    public MeanPayment MeansPaymentId { get; set; }
-    public Bank BankId { get; set; }    
-    public ProductCategory ProductCategoryId { get; set; }
-    public int? DuesQuanty { get; private set; }
-    public decimal? ValorInteresCuotas { get; private set; }
-    public decimal? PorcentajeDeDescuento { get; private set; }
+    public Int32 MeansPaymentId { get; set; }
+    public MeanPayment MeansPayment { get; set; }
+    public Int32 BankId { get; set; }
+    public Bank Bank { get; set; }
+    public Int32 ProductCategoryId { get; set; }
+    public ProductCategory ProductCategory { get; set; }
+    public Int32? DuesQuanty { get; private set; }
+    public Decimal? ValorInteresCuotas { get; private set; }
+    public Decimal? PorcentajeDeDescuento { get; private set; }
     public DateTime? FechaInicio { get; private set; }
     public DateTime? FechaFin { get; private set; }
-    public bool Active { get; set; }
+    public Boolean Active { get; set; }
     public DateTime FechaCreacion { get; private set; }
     public DateTime? FechaModificacion { get; private set; }
-    public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
-
-    public void SetValorInteresCuotas(decimal? value)
-    {
-        this.ValorInteresCuotas = value;
-    }
-
-    public void SetActivo(Boolean value)
-    {
-        this.Active = value;
-    }
-
-    public void SetMaximaCantidadDeCuotas(int? duesQuanty)
-    {
-        this.DuesQuanty = duesQuanty;
-    }
-    public void SetPorcentajeDeDescuento(decimal? porcentajeDeDescuento)
-    {
-        this.PorcentajeDeDescuento = porcentajeDeDescuento;
-    }
 }

@@ -25,7 +25,7 @@ public class Program
                 }
 
                 var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();                
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
             }
             catch (Exception ex)
             {
