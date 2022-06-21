@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using PromotionSales.Api.Application.Common.EntitiesDto;
 using PromotionSales.Api.Application.Common.Interfaces;
 using PromotionSales.Api.Domain.Entities;
 
@@ -21,18 +22,24 @@ public sealed class CreatePromotionCommandHandler : IRequestHandler<CreatePromot
 
     public async Task<Guid> Handle(CreatePromotionCommand request, CancellationToken cancellationToken)
     {
-        var entity = new Promotion();
+        var entityDto = new PromotionDto
+        {
+            Code = request.Code,
+            FechaCreacion = request.FechaCreacion,
+            Activo = request.Active
+            //BookAuthorGuid = Convert.ToString(Guid.NewGuid())
+        };
         try
         {
-            entity.Active = request.Active;
+            var entity = this.mapper.Map<Promotion>(entityDto);
             this.context.Promotions.Add(entity);
-
             await this.context.SaveChangesAsync(cancellationToken);
+            return entity.Id;
         }
         catch (Exception ex)
         {
             logger.LogError(ex.Message, ex);
         }
-        return entity.Id;
+        return Guid.Empty;
     }
 }

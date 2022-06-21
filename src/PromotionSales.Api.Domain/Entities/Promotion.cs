@@ -13,6 +13,7 @@ public sealed class Promotion : AuditableEntity, IHasDomainEvent
     [Required]
     [Key]
     public Guid Id { get; private set; }
+    public String Code { get; private set; }
     public string PromocionName { get; private set; }
     public ICollection<PromotionConfigure> PromotionsConfigure { get; set; }
     public DateTime? EffectiveDate { get; private set; }

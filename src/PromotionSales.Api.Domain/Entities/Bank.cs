@@ -7,6 +7,6 @@ public class Bank
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; private set; }
-    public string Descripcion { get; set; }
+    public Int32 Id { get; private set; }
+    public String Descripcion { get; set; }
 }

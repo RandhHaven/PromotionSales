@@ -22,7 +22,10 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-       
+        <PackageReference Include="Serilog.Exceptions.EntityFrameworkCore" Version="7.1.0" />
+        <PackageReference Include="Serilog.Expressions" Version="3.2.0" />
+        <PackageReference Include="Serilog.Sinks.AzureAppendBlob" Version="0.1.0" />
+        <PackageReference Include="WindowsAzure.Storage" Version="7.1.2" />
     </ItemGroup>
 
     <ItemGroup>
